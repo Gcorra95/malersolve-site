@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>MakerSolve — Filament Recycling System</title>
+<title>MakerSolve — Engineering Waste Into Filament</title>
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -12,16 +12,17 @@
 <style>
 :root{
   --bg:#ffffff;
-  --bg-soft:#f7f9fc;
+  --soft:#f6f9fc;
   --text:#0f172a;
   --muted:#64748b;
   --brand:#0096c7;
-  --brand-dark:#005f99;
+  --brand-dark:#006a9c;
   --radius:14px;
-  --max:1150px;
+  --max:1100px;
 }
 
 *{box-sizing:border-box;margin:0;padding:0}
+
 body{
   font-family:"Inter",system-ui;
   background:var(--bg);
@@ -39,10 +40,10 @@ body{
 
 header{
   position:fixed;
-  top:0;
   width:100%;
-  background:#ffffffdd;
-  backdrop-filter:blur(10px);
+  top:0;
+  background:#ffffffee;
+  backdrop-filter:blur(8px);
   border-bottom:1px solid #e5e7eb;
   z-index:1000;
 }
@@ -54,14 +55,27 @@ header{
   height:70px;
 }
 
-.logo{
+.brand{
+  display:flex;
+  align-items:center;
+  text-decoration:none;
+  color:var(--text);
+  gap:10px;
+}
+
+.brand img{
+  height:36px;
+  width:auto;
+}
+
+.brand-text{
   font-family:"Sora";
   font-weight:600;
   font-size:20px;
   letter-spacing:-.5px;
 }
 
-.logo span{color:var(--brand)}
+.brand-text span{color:var(--brand)}
 
 .nav-links{
   display:flex;
@@ -75,12 +89,6 @@ header{
   font-weight:500;
 }
 
-.lang{
-  cursor:pointer;
-  font-size:14px;
-  color:var(--muted);
-}
-
 .hamburger{
   display:none;
   flex-direction:column;
@@ -89,7 +97,7 @@ header{
 }
 
 .hamburger div{
-  width:25px;
+  width:24px;
   height:3px;
   background:#111;
 }
@@ -150,7 +158,7 @@ section{
 }
 
 .card{
-  background:var(--bg-soft);
+  background:var(--soft);
   padding:30px;
   border-radius:var(--radius);
 }
@@ -206,19 +214,20 @@ footer{
 
 <header>
   <div class="container nav">
-   <a class="brand" href="#top" aria-label="MakerSolve Home">
-  <img src="assets/logo.png" alt="MakerSolve" class="brand-logo"
-       onerror="this.style.display='none'; document.getElementById('brandText').style.display='inline-flex';">
-  <span id="brandText" class="brand-text" style="display:none;">
-    Maker<span>Solve</span>
-  </span>
-</a>
+
+    <a href="#" class="brand">
+      <img src="assets/logo.png"
+           alt="MakerSolve Logo"
+           onerror="this.style.display='none'; document.getElementById('fallback').style.display='block';">
+      <div id="fallback" class="brand-text" style="display:none;">
+        Maker<span>Solve</span>
+      </div>
+    </a>
 
     <div class="nav-links" id="menu">
       <a href="#system">System</a>
       <a href="#modules">Modules</a>
       <a href="#build">Build Log</a>
-      <div class="lang">EN / IT</div>
     </div>
 
     <div class="hamburger" onclick="toggleMenu()">
@@ -226,31 +235,9 @@ footer{
       <div></div>
       <div></div>
     </div>
+
   </div>
 </header>
-
-.brand{
-  display:flex;
-  align-items:center;
-  gap:12px;
-  text-decoration:none;
-  color:var(--text);
-}
-
-.brand-logo{
-  height:34px;        /* regola qui se lo vuoi più grande */
-  width:auto;
-  display:block;
-}
-
-.brand-text{
-  font-family:"Sora";
-  font-weight:600;
-  font-size:20px;
-  letter-spacing:-.5px;
-}
-
-.brand-text span{color:var(--brand)}
 
 <section class="hero">
   <div class="container">
@@ -308,7 +295,7 @@ footer{
 </section>
 
 <footer>
-  © 2026 MakerSolve — DIY Engineering Platform
+  © 2026 MakerSolve — Digital DIY Platform
 </footer>
 
 <script>
